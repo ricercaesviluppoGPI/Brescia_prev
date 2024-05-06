@@ -14,7 +14,7 @@ import plotly.graph_objects as go
 import pydeck as pdk
 
 import locale
-$ export LC_ALL=C
+export LC_ALL=C
 locale.setlocale(locale.LC_TIME, "it_IT.utf8")
 
 with st.sidebar:
