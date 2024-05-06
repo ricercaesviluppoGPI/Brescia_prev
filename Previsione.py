@@ -17,7 +17,7 @@ import locale
 #locale.setlocale(locale.LC_ALL, 'it_IT.utf8')
 
 with st.sidebar:
-    st.image("C:\devRS\Bologna_Sales_Meeting\Gpi_CMYK_payoff.png", caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="PNG")
+    st.image("Gpi_CMYK_payoff.png", caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="PNG")
 
 hypermeteo = pd.read_csv('hypermeteo_new.csv', sep = ';', encoding= 'unicode_escape')
 prediction = pd.read_csv('pred_new.csv', sep = ';', encoding= 'unicode_escape')
