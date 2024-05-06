@@ -14,7 +14,7 @@ import plotly.graph_objects as go
 import pydeck as pdk
 
 import locale
-locale.setlocale(locale.LC_ALL, 'it_IT.utf8')
+#locale.setlocale(locale.LC_ALL, 'it_IT.utf8')
 
 with st.sidebar:
     st.image("C:\devRS\Bologna_Sales_Meeting\Gpi_CMYK_payoff.png", caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="PNG")
