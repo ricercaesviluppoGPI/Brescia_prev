@@ -13,12 +13,12 @@ import plotly.express as px
 import plotly.graph_objects as go
 import pydeck as pdk
 import locale
-locale.setlocale(locale.LC_TIME, "it_IT.utf8")
+#locale.setlocale(locale.LC_TIME, "it_IT.utf8")
 import altair as alt
 # https://docs.streamlit.io/develop/api-reference/charts/st.altair_chart
 
 with st.sidebar:
-    st.image("C:\devRS\Bologna_Sales_Meeting\Gpi_CMYK_payoff.png", caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="PNG")
+    st.image("Gpi_CMYK_payoff.png", caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="PNG")
 
 hypermeteo = pd.read_csv('hypermeteo_new.csv', sep = ';', encoding= 'unicode_escape')
 
