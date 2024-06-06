@@ -42,7 +42,7 @@ hypermeteo['SSWTOT_DAILY_Whm-2'] = (hypermeteo['SSWTOT_DAILY_Whm-2']> 8500).asty
 
 hypermeteo['TOT'] = hypermeteo['PM10_DAILY_ugm-3'] + hypermeteo['PM2p5_DAILY_ugm-3'] + hypermeteo['NOx_DAILY_ugm-3'] + hypermeteo['SO2_DAILY_ugm-3'] + hypermeteo['O3_DAILY_ugm-3'] + hypermeteo['TMIN_DAILY_C'] + hypermeteo['TMAX_DAILY_C'] + hypermeteo['RHMIN_DAILY_%'] + hypermeteo['RHMAX_DAILY_%'] + hypermeteo['PREC_DAILY_mm'] + hypermeteo['SSWTOT_DAILY_Whm-2']
 
-hypermeteo["DATA"] = pd.to_datetime(hypermeteo["DATA"], format='%Y-%m-%d')
+hypermeteo["DATA"] = pd.to_datetime(hypermeteo["DATA"], format='%d/%m/%y')
 later = hypermeteo.copy()
 
 min_date = pd.to_datetime("2022-01-01", format="%Y-%m-%d")
