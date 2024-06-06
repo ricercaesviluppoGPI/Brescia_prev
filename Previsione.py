@@ -19,12 +19,12 @@ import locale
 with st.sidebar:
     st.image("Gpi_CMYK_payoff.png", caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="PNG")
 
-hypermeteo = pd.read_csv('hypermeteo_new.csv', sep = ';', encoding= 'unicode_escape')
-prediction = pd.read_csv('pred_new.csv', sep = ';', encoding= 'unicode_escape')
+hypermeteo = pd.read_csv('hypermeteo.csv', sep = ';', encoding= 'unicode_escape')
+prediction = pd.read_csv('pred.csv', sep = ';', encoding= 'unicode_escape')
 prediction['prediction'] = round(prediction['prediction'])
-cardio = pd.read_csv('cardio_new.csv', sep = ';', encoding= 'unicode_escape')
+cardio = pd.read_csv('cardio.csv', sep = ';', encoding= 'unicode_escape')
 cardio['prediction'] = round(cardio['prediction'])
-resp = pd.read_csv('resp_new.csv', sep = ';', encoding= 'unicode_escape')
+resp = pd.read_csv('resp.csv', sep = ';', encoding= 'unicode_escape')
 resp['prediction'] = round(resp['prediction'])
 
 
@@ -43,14 +43,14 @@ hypermeteo['SSWTOT_DAILY_Whm-2'] = (hypermeteo['SSWTOT_DAILY_Whm-2']> 8500).asty
 hypermeteo['TOT'] = hypermeteo['PM10_DAILY_ugm-3'] + hypermeteo['PM2p5_DAILY_ugm-3'] + hypermeteo['NOx_DAILY_ugm-3'] + hypermeteo['SO2_DAILY_ugm-3'] + hypermeteo['O3_DAILY_ugm-3'] + hypermeteo['TMIN_DAILY_C'] + hypermeteo['TMAX_DAILY_C'] + hypermeteo['RHMIN_DAILY_%'] + hypermeteo['RHMAX_DAILY_%'] + hypermeteo['PREC_DAILY_mm'] + hypermeteo['SSWTOT_DAILY_Whm-2']
 
 hypermeteo["DATA"] = pd.to_datetime(hypermeteo["DATA"], format='%Y-%m-%d')
-later = hypermeteo
+later = hypermeteo.copy()
 
-min_date = pd.to_datetime("2024-01-01", format="%Y-%m-%d")
-max_date = pd.to_datetime("2024-12-31", format="%Y-%m-%d")
+min_date = pd.to_datetime("2022-01-01", format="%Y-%m-%d")
+max_date = pd.to_datetime("2022-12-31", format="%Y-%m-%d")
 
 with st.expander("Seleziona intervallo temporale"):
-    start_date = st.date_input("Scegli data di inizio previsione:", value=pd.to_datetime("2024-01-01", format="%Y-%m-%d"), min_value = min_date, max_value = max_date)
-    end_date = st.date_input("Scegli data di fine previsione:", value=pd.to_datetime("2024-12-31", format="%Y-%m-%d"), min_value = min_date, max_value = max_date)
+    start_date = st.date_input("Scegli data di inizio previsione:", value=pd.to_datetime("2022-01-01", format="%Y-%m-%d"), min_value = min_date, max_value = max_date)
+    end_date = st.date_input("Scegli data di fine previsione:", value=pd.to_datetime("2022-12-31", format="%Y-%m-%d"), min_value = min_date, max_value = max_date)
 
 start_date = pd.to_datetime(start_date, format='%Y-%m-%d')
 end_date = pd.to_datetime(end_date, format='%Y-%m-%d')
@@ -251,8 +251,8 @@ if ricoveri:
 
 # Mappa Brescia
 
-jan_1 = date(2024, 1, 1)
-dec_31 = date(2024, 12, 31)
+jan_1 = date(2022, 1, 1)
+dec_31 = date(2022, 12, 31)
 
 with st.expander("Seleziona l'intervallo di tempo per cui visualizzare la media dei valori ambientali fuori soglia"):
     interval_date = st.date_input("Scegli l'intervallo di date:", (jan_1, dec_31), jan_1, dec_31, format="YYYY/MM/DD")
