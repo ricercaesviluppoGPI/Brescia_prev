@@ -20,16 +20,15 @@ import altair as alt
 with st.sidebar:
     st.image("Gpi_CMYK_payoff.png", caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="PNG")
 
-hypermeteo = pd.read_csv('hypermeteo_new.csv', sep = ';', encoding= 'unicode_escape')
+hypermeteo = pd.read_csv('hypermeteo.csv', sep = ';', encoding= 'unicode_escape')
 
-hypermeteo["DATA"] = pd.to_datetime(hypermeteo["DATA"], format='%Y-%m-%d')
-hypermeteo_23 = hypermeteo
-hypermeteo_23 = hypermeteo_23[hypermeteo_23["DATA"].dt.year==2023]
+hypermeteo["DATA"] = pd.to_datetime(hypermeteo["DATA"], format='%d/%m/%y')
 hypermeteo['CAP'] = hypermeteo['CAP'].astype(str)
-hypermeteo_23['CAP'] = hypermeteo_23['CAP'].astype(str)
+hypermeteo_22 = hypermeteo.copy()
+hypermeteo_22 = hypermeteo_22[hypermeteo_22["DATA"].dt.year==2022]
 
 source = hypermeteo
-source_23 = hypermeteo_23
+source_22 = hypermeteo_22
 
 scale = alt.Scale(
 domain=["25121", "25122", "25123", "25124", "25125", "25126", "25127", "25128", "25129", "25131", "25132", "25133", "25134", "25135", "25136"],
@@ -73,7 +72,7 @@ elif option=='Irradiazione solare':
 
 ######## PRIMO GRAFICO
 points = (
-    alt.Chart(source_23, title="Variabili ambientali Brescia 2023").mark_point(size=3).encode(
+    alt.Chart(source_22, title="Variabili ambientali Brescia 2022").mark_point(size=3).encode(
     x='DATA',
     y=option,
     color=alt.Color("CAP:N", scale=scale),
@@ -91,7 +90,7 @@ st.altair_chart(points, theme="streamlit", use_container_width=True)
 ######## SECONDO GRAFICO, FATTO DA NOI
 
 points = (
-    alt.Chart(source, title="Variabili ambientali Brescia 2020-2024").mark_point(size=3).encode(
+    alt.Chart(source, title="Variabili ambientali Brescia 2018-2022").mark_point(size=3).encode(
     x='DATA',
     y=option,
     color=alt.Color("CAP:N", scale=scale),
@@ -107,7 +106,7 @@ st.altair_chart(points, theme="streamlit", use_container_width=True)
 ######## FINE SECONDO GRAFICO, FATTO DA NOI
 
 
-hypermeteo_range = hypermeteo
+hypermeteo_range = hypermeteo.copy()
 
 hypermeteo_range['NOx_DAILY_ugm-3'] = (hypermeteo_range['NOx_DAILY_ugm-3']>=25).astype(int)
 hypermeteo_range['PM2p5_DAILY_ugm-3'] = (hypermeteo_range['PM2p5_DAILY_ugm-3']>= 15).astype(int)
@@ -124,7 +123,7 @@ hypermeteo_range['TOT'] = hypermeteo_range['PM10_DAILY_ugm-3'] + hypermeteo_rang
 
 anno = st.selectbox(
    "Di quale anno vorresti vedere il numero di valori (su 12) che sono stati fuori range per i vari CAP?",
-   (2020, 2021, 2022, 2023, 2024),
+   (2018, 2019, 2020, 2021, 2022),
    placeholder="Seleziona anno"
 )
 
