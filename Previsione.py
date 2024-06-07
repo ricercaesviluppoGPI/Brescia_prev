@@ -16,6 +16,11 @@ import pydeck as pdk
 import locale
 #locale.setlocale(locale.LC_ALL, 'it_IT.utf8')
 
+st.set_page_config(
+    page_title="Previsione PS",
+    page_icon="⚕️",
+)
+
 with st.sidebar:
     st.image("Gpi_CMYK_payoff.png", caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="PNG")
 
