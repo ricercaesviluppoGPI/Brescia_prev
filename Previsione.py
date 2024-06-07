@@ -243,7 +243,7 @@ title = {'text':'Numero di ricoveri previsti per malattie respiratorie e valori 
 }
 )
 
-accuratezza = st.checbox("Confronto tra previsione e valori reali di accessi al PS")
+accuratezza = st.checkbox("Confronto tra previsione e valori reali di accessi al PS")
 
 if accuratezza:
     st.image("Valori effettivi e predetti.jpg", caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="PNG")
