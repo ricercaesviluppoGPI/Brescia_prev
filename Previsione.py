@@ -248,10 +248,10 @@ title = {'text':'Numero di ricoveri previsti per malattie respiratorie e valori 
 }
 )
 
-accuratezza = st.checkbox("Confronto tra previsione e valori reali di accessi al PS")
+accuratezza = st.checkbox(":part_alternation_mark: :technologist: :mag:  Confronto tra previsione e valori reali di accessi al PS")
 
 if accuratezza:
-    st.image(":part_alternation_mark: :technologist: :mag: Valori effettivi e predetti.jpg", caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="PNG")
+    st.image("Valori effettivi e predetti.jpg", caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="PNG")
 
 ricoveri = st.checkbox(":hospital: Grafici ricoveri")
 
