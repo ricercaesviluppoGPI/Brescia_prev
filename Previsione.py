@@ -22,7 +22,7 @@ st.set_page_config(
 )
 
 with st.sidebar:
-    st.image("Gpi_CMYK_payoff.png", caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="PNG")
+    st.image("Gpi_CMYK_payoff.png", caption=None, width=80, use_column_width=None, clamp=False, channels="RGB", output_format="PNG")
 
 hypermeteo = pd.read_csv('hypermeteo.csv', sep = ';', encoding= 'unicode_escape')
 prediction = pd.read_csv('pred.csv', sep = ';', encoding= 'unicode_escape')
