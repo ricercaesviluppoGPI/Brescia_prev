@@ -262,8 +262,8 @@ if ricoveri:
 accuratezza_cardio_resp = st.checkbox(":mag: Confronto tra previsione e valori reali di ricoveri da triage")
 
 if accuratezza_cardio_resp:
-    st.image("Valori effettivi e predetti.jpg", caption='Confronto per ricoveri per malattie cardiovascolari :anatomical_heart:', width=None, use_column_width=None, clamp=False, channels="RGB", output_format="PNG")
-    st.image("Valori effettivi e predetti.jpg", caption='Confronto per ricoveri per malattie respiratorie :lungs:', width=None, use_column_width=None, clamp=False, channels="RGB", output_format="PNG")
+    st.image("Valori effettivi e predetti cardiovascolare range lag 1 giorno", caption='Confronto per ricoveri per malattie cardiovascolari :anatomical_heart:', width=None, use_column_width=None, clamp=False, channels="RGB", output_format="PNG")
+    st.image("Valori effettivi e predetti respiratorio ranges lag 1 giorno.jpg", caption='Confronto per ricoveri per malattie respiratorie :lungs:', width=None, use_column_width=None, clamp=False, channels="RGB", output_format="PNG")
 
 # Mappa Brescia
 
