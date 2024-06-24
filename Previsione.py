@@ -254,6 +254,7 @@ if accuratezza:
     st.image("Valori effettivi e predetti.jpg", caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="PNG")
 
 st.markdown(""":violet[---]""")
+st.markdown("""<hr style="height:10px;border:none;color:#333;background-color:#333;" /> """, unsafe_allow_html=True)
 
 ricoveri = st.checkbox(":hospital: Grafici ricoveri")
 
