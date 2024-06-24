@@ -253,7 +253,7 @@ accuratezza = st.checkbox(":mag: Confronto tra previsione e valori reali di acce
 if accuratezza:
     st.image("Valori effettivi e predetti.jpg", caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="PNG")
 
-st.markdown("""---""")
+st.markdown(""":violet[---]""")
 
 ricoveri = st.checkbox(":hospital: Grafici ricoveri")
 
