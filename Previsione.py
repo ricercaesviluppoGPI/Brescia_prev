@@ -253,6 +253,8 @@ accuratezza = st.checkbox(":mag: Confronto tra previsione e valori reali di acce
 if accuratezza:
     st.image("Valori effettivi e predetti.jpg", caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="PNG")
 
+st.markdown("""---""")
+
 ricoveri = st.checkbox(":hospital: Grafici ricoveri")
 
 if ricoveri:
@@ -262,6 +264,8 @@ if ricoveri:
     if accuratezza_cardio_resp:
         st.image("Valori effettivi e predetti cardiovascolare range lag 1 giorno.jpg", caption='Confronto per ricoveri per malattie cardiovascolari', width=None, use_column_width=None, clamp=False, channels="RGB", output_format="PNG")
         st.image("Valori effettivi e predetti respiratorio ranges lag 1 giorno.jpg", caption='Confronto per ricoveri per malattie respiratorie', width=None, use_column_width=None, clamp=False, channels="RGB", output_format="PNG")
+
+st.markdown("""---""")
 
 # Mappa Brescia
 
